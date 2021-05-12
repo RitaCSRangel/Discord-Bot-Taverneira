@@ -5,8 +5,9 @@ from discord.utils import get
 from discord import FFmpegPCMAudio
 from discord.utils import get
 from dotenv import load_dotenv
-import asyncio
+import random
 from youtube_dl import YoutubeDL
+from databases import urls
 
 load_dotenv()
 client = commands.Bot (command_prefix = "!")
@@ -52,6 +53,10 @@ async def play(ctx, url):
     else:
         await ctx.send("Already playing song")
         return
+
+@client.command()
+async def ambientefantasia(ctx):
+  await play.callback(ctx, random.choice(urls.ambiente_fantasia))
 
 #Retornando um print para saber que o bot foi inicializado
 @client.event
