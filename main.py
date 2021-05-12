@@ -36,8 +36,9 @@ for filename in os.listdir('./cogs'):
     client.load_extension (f'cogs.{filename[:-3]}')
 
 #
-@client.command(brief="Plays a single video, from a youtube URL")
+@client.command()
 async def play(ctx, url):
+
     YDL_OPTIONS = {'format': 'bestaudio', 'noplaylist':'True'}
     FFMPEG_OPTIONS = {'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5', 'options': '-vn'}
     voice = get(client.voice_clients, guild=ctx.guild)
