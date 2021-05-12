@@ -36,7 +36,7 @@ for filename in os.listdir('./cogs'):
   if filename.endswith('.py'):
     client.load_extension (f'cogs.{filename[:-3]}')
 
-#
+#Faz tocar a música do url
 @client.command()
 async def play(ctx, url):
 
@@ -54,9 +54,40 @@ async def play(ctx, url):
         await ctx.send("Already playing song")
         return
 
+#Envia um url randomizado para o play
 @client.command()
 async def ambientefantasia(ctx):
-  await play.callback(ctx, random.choice(urls.ambiente_fantasia))
+  musica = random.choice(urls.ambiente_fantasia)
+  await play.callback(ctx, musica)
+  await ctx.channel.send ("Tocando: {musica}")
+
+#Envia um url randomizado para o play
+@client.command()
+async def combatecomum(ctx):
+  musica = random.choice(urls.combate_comum)
+  await play.callback(ctx, musica)
+  await ctx.channel.send ("Tocando: {musica}")
+
+#Envia um url randomizado para o play
+@client.command()
+async def combatesombrio(ctx):
+  musica = random.choice(urls.combate_sombrio)
+  await play.callback(ctx, musica)
+  await ctx.channel.send ("Tocando: {musica}")
+
+#Envia um url randomizado de para o play
+@client.command()
+async def combateepico(ctx):
+  musica = random.choice(urls.combate_epico)
+  await play.callback(ctx, musica)
+  await ctx.channel.send ("Tocando: {musica}")
+
+#Envia um url randomizado de para o play
+@client.command()
+async def ambientesombrio(ctx):
+  musica = random.choice(urls.ambiente_sombrio)
+  await play.callback(ctx, musica)
+  await ctx.channel.send ("Tocando: {musica}")
 
 #Retornando um print para saber que o bot foi inicializado
 @client.event
