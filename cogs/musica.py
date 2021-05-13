@@ -20,6 +20,12 @@ class Musica (commands.Cog):
     channel = ctx.author.voice.channel
     await channel.connect()
   
+  #Sai no canal de voz
+  @commands.command()
+  async def leave(self, ctx):
+    channel = ctx.author.voice.channel
+    await channel.disconnect()
+
   #Músicas
   @commands.command()
   async def musicas(self, ctx):

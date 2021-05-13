@@ -60,35 +60,35 @@ async def play(ctx, url):
 async def ambientefantasia(ctx):
   musica = random.choice(urls.ambiente_fantasia)
   await play.callback(ctx, musica)
-  await ctx.channel.send ("Tocando: {musica}")
+  await ctx.channel.send (f"Tocando: {musica}")
 
 #Envia um url randomizado para o play
 @client.command()
 async def combatecomum(ctx):
   musica = random.choice(urls.combate_comum)
   await play.callback(ctx, musica)
-  await ctx.channel.send ("Tocando: {musica}")
+  await ctx.channel.send (f"Tocando: {musica}")
 
 #Envia um url randomizado para o play
 @client.command()
 async def combatesombrio(ctx):
   musica = random.choice(urls.combate_sombrio)
   await play.callback(ctx, musica)
-  await ctx.channel.send ("Tocando: {musica}")
+  await ctx.channel.send (f"Tocando: {musica}")
 
 #Envia um url randomizado de para o play
 @client.command()
 async def combateepico(ctx):
   musica = random.choice(urls.combate_epico)
   await play.callback(ctx, musica)
-  await ctx.channel.send ("Tocando: {musica}")
+  await ctx.channel.send (f"Tocando: {musica}")
 
 #Envia um url randomizado de para o play
 @client.command()
 async def ambientesombrio(ctx):
   musica = random.choice(urls.ambiente_sombrio)
   await play.callback(ctx, musica)
-  await ctx.channel.send ("Tocando: {musica}")
+  await ctx.channel.send (f"Tocando: {musica}")
 
 #Retornando um print para saber que o bot foi inicializado
 @client.event
