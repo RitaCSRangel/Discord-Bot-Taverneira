@@ -11,10 +11,8 @@ Pacotes:
 - [discord.py](https://pypi.org/project/discord.py/)
 
 To get voice support you should also run the following command:
-# Linux/macOS
-python3 -m pip install -U "discord.py[voice]"
-# Windows
-py -3 -m pip install -U discord.py[voice]
+Linux -> python3 -m pip install -U "discord.py[voice]"
+Windows -> py -3 -m pip install -U discord.py[voice]
 
 - [dotenv](https://pypi.org/project/python-dotenv/)
 - [ffmpeg](https://pypi.org/project/ffmpeg/)
