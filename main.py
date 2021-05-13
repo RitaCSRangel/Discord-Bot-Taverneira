@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 import random
 from youtube_dl import YoutubeDL
 from databases import urls
+from keep_alive import keep_alive
 
 load_dotenv()
 client = commands.Bot (command_prefix = "!")
@@ -36,7 +37,7 @@ for filename in os.listdir('./cogs'):
   if filename.endswith('.py'):
     client.load_extension (f'cogs.{filename[:-3]}')
 
-#Faz tocar a música do url
+#Faz tocar a música do url, precisa dar pip instal ffmpeg
 @client.command()
 async def play(ctx, url):
 
@@ -95,4 +96,5 @@ async def on_ready():
     print("Bot pronto para uso.")
 
 #Faz o bot rodar usando o token dele
+keep_alive()
 client.run(os.environ['TOKEN'])
