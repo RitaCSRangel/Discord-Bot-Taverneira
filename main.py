@@ -37,6 +37,19 @@ for filename in os.listdir('./cogs'):
   if filename.endswith('.py'):
     client.load_extension (f'cogs.{filename[:-3]}')
 
+#Nota: Os comandos relacionados ao voice channel precisam da biblioteca PyNaCl, use pip install -U discord.py[voice] no terminal para instalar o pacote
+#Entra no canal de voz
+@client.command()
+async def join(ctx):
+  channel = ctx.author.voice.channel
+  vc = await channel.connect()
+  
+#Sai no canal de voz
+@client.command()
+async def leave(ctx):
+  for vc in client.voice_clients:
+    await vc.disconnect()
+
 #Faz tocar a música do url, precisa dar pip instal ffmpeg
 @client.command()
 async def play(ctx, url):
