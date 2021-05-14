@@ -11,7 +11,7 @@ class Musica (commands.Cog):
   @commands.Cog.listener()
   async def on_ready (self):
     print("Cog música pronto para uso.")
-  
+    
   #Músicas
   @commands.command()
   async def musicas(self, ctx):
