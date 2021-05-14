@@ -12,14 +12,6 @@ class Musica (commands.Cog):
   async def on_ready (self):
     print("Cog música pronto para uso.")
   
-  #Commands
-  #Nota: Os comandos relacionados ao voice channel precisam da biblioteca PyNaCl, use pip install -U discord.py[voice] no terminal para instalar o pacote
-  #Entra no canal de voz
-  @commands.command()
-  async def join(self, ctx):
-    channel = ctx.author.voice.channel
-    await channel.connect()
-  
   #Músicas
   @commands.command()
   async def musicas(self, ctx):
