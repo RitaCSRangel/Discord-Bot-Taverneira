@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask #Tem que instalar com o pip
 from threading import Thread
 
 app = Flask('')
