@@ -9,6 +9,7 @@ import random
 from youtube_dl import YoutubeDL
 from databases import urls
 from cogs import musica
+from keep_alive import keep_alive
 
 load_dotenv()
 client = commands.Bot (command_prefix = "!")
@@ -150,4 +151,5 @@ async def on_ready():
     print("Bot pronto para uso.")
 
 #Faz o bot rodar usando o token dele
+keep_alive()
 client.run(os.environ['TOKEN'])
