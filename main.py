@@ -54,6 +54,20 @@ async def play(ctx, url):
         await ctx.send("Already playing song")
         return
 
+#Pausa a música
+@client.command()
+async def play(ctx, url):
+
+    YDL_OPTIONS = {'format': 'bestaudio', 'noplaylist':'True'}
+    FFMPEG_OPTIONS = {'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5', 'options': '-vn'}
+    voice = get(client.voice_clients, guild=ctx.guild)
+
+    if voice.is_playing():
+        voice.stop()
+    else:
+        await ctx.send("Não há nenhuma música tocando.")
+        return
+
 #Envia um url randomizado para o play
 @client.command()
 async def ambientefantasia(ctx):
