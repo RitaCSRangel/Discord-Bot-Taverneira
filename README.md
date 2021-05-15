@@ -21,14 +21,7 @@ Windows -> py -3 -m pip install -U discord.py[voice]
 
 ## Utilitários
 
-~~!comandos~~
-*Status: Para remção.*
-
-~~!mesas~~
-*Status: Completo.*
-
-### !help
-
+~~!help~~
 Lista todos os comandos com uma descrição breve de cada um deles.
 *Status: Completo.*
 
