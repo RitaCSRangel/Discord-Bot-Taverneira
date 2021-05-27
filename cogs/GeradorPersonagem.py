@@ -12,7 +12,7 @@ class GeradorPersonagem (commands.Cog):
   #Events
   @commands.Cog.listener()
   async def on_ready(self):
-    print("Cog utilitários pronto para uso.")
+    print("Cog Gerador Personagem pronto para uso.")
   
   #Commands
   #Retorma um personagem randomizado
