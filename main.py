@@ -46,10 +46,18 @@ for filename in os.listdir('./cogs'):
 async def help(ctx):
     await ctx.send("**Bem vindo a taverna, aventureiro**! \n Aqui estão os comandos disponíveis e suas descrições. \n \n **Comandos para controlar o bot de música:** \n join             *Entrar em um canal de voz.* \n leave            *Sair do canal de voz.* \n play            *Tocar a música do fornecido.* \n pause            *Pausar a música.* \n stop             *Parar a música.* \n resume           *Continua a música.* \n \n **Comandos para tocar músicas aleatórias baseadas em um tópico:** \n ambientecalmo    *Música aleatória de Ambiente Calmo.* \n ambienteepico    *Música aleatória de Ambiente Calmo.* \n ambientefantasia    *Música aleatória de Ambiente Fantasia.* \n ambienteinfernal    *Música aleatória de Ambiente Infernal.* \n ambientesombrio    *Música aleatória de Ambiente Sombrio.* \n combatecomum     *Música aleatória de Combate Comum.* \n combateepico     *Música aleatória de Combate Épico.* \n combatesombrio   *Música aleatória de Combate Sombrio.* \n kasinao          *Música do Kasinão.* \n \n **Comandos para utilizar a Loja Planar:** \n regraslp     *Ver as regras da Loja Planar.* \n itenslp     *Ver os itens disponíveis na Loja Planar.* \n saldoslp     *Ver o saldo dos jogadores na Loja Planar.* \n \n **Comandos para ajudar na criação de personagens e NPCs:** \n gerarpersonagem     *Gerar informações genéricas e divertidas.* \n\n **Comandos de developer para manipular cogs:** \n load     *Carregar uma cog.* \n reload     *Recarregar uma cog.* \n unload     *Descarregar cog.*")
 
+#---------- TAVERNA PLANAR ----------------------
 @client.command()
 async def saldostp(ctx):
-  texto = f"Os jogadores disponíveis são: \n \n{jogadores.jogadoresTP}"
-  await ctx.channel.send(texto)
+  textoApresentacao = f"**Os jogadores disponíveis são:** \n \n"
+
+  i = 0
+  while i != len(jogadores.jogadoresTP):
+    textoApresentacao = textoApresentacao + f"{jogadores.jogadoresTP[i]}\n"
+    i = i + 1
+  
+  textoApresentacao = textoApresentacao + "**\n\nDigite o nome do jogador que gostaria de consultar:**"
+  await ctx.channel.send(textoApresentacao)
   
   def check(msg):
     return msg.author == ctx.author and msg.channel == ctx.channel and \
@@ -62,10 +70,28 @@ async def saldostp(ctx):
     while msg.content != jogadores.jogadoresTP[i]:
       i = i + 1
     
-    texto = f"{jogadores.jogadoresTP[i]} tem {3} moedas planares."
+    texto = f"{jogadores.jogadoresTP[i]} tem {jogadores.moedas[i]} moedas planares."
     await ctx.send (texto)
   else:
-    await ctx.send("You said no!")
+    await ctx.send("Insira um jogador cadastrado na Taverna Planar. Verifique o nome que você digitou e caso o jogador que você procura não estiver na lista você pode adicioná-lo com !entrarTP")
+
+@client.command()
+async def entrartp(ctx):
+  texto = "Digite o seu nome:"
+  await ctx.send(texto)
+  
+  def check(msg):
+    return msg.author == ctx.author and msg.channel == ctx.channel and \
+    msg.content in jogadores.jogadoresTP
+
+  msgNome = await client.wait_for("message")
+  jogadores.jogadoresTP.insert(8, msgNome.content)
+  await ctx.send (jogadores.jogadoresTP)
+  #texto = "Quantas moedas você ganhou:"
+  #await ctx.send (texto)
+  #msgMoedas = await client.wait_for("message", check=check)
+  #jogadores.moedas.append(msgMoedas.content)
+  #await ctx.send (f"Feito, agora você poderá usar !saldostp junto da resposta {msgNome} para consultar suas moedas na Taverna Planar.")
 
 #------------------- ENTRAR E SAIR NO CANAL DE VOZ -------------------------
 

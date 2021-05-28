@@ -1,18 +1,21 @@
 jogadoresTP = [
-  "GM(Eu)", 
+  "Rita", 
   "JP", 
-  "Lucas", 
   "Luan",
-  "Sereyo",
-  "[NickTremade]",
-  "Alemão",
-  "Alexandre",
-  "Ciara O'brian",
-  "Despin/Drakor",
-  "dkdlg",
-  "freneda",
-  "Gorgonzola Mofada",
-  "freneda"
-  "Kentaro Miura",
-  "Lauren - Ana"
+  "Luiz"
+  "Nick",
+  "Will",
+  "Arec",
+  "Rafael"
+]
+
+moedas = [
+  1,
+  1,
+  0,
+  0,
+  2,
+  0,
+  1,
+  1
 ]
