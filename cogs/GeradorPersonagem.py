@@ -18,7 +18,14 @@ class GeradorPersonagem (commands.Cog):
   #Retorma um personagem randomizado
   @commands.command()
   async def gerarpersonagem(self, ctx):
-    genero = random.choice(personagem.genero)
+    chance = random.randint(0,125)
+    if chance <= 50:
+      genero = personagem.genero[0]
+    if chance <= 100:
+      genero = personagem.genero[1]
+    if chance <= 25:
+      genero = personagem.genero[2]
+
     raca = random.choice(personagem.raca)
     idade = random.choice(personagem.idade)
     pais = random.choice(personagem.pais)

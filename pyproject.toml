@@ -12,6 +12,7 @@ flask = "^2.0.0"
 python-dotenv = "^0.17.1"
 PyNaCl = "^1.4.0"
 "discord.py" = "^1.7.2"
+replit = "^3.1.0"
 
 [tool.poetry.dev-dependencies]
 

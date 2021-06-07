@@ -97,4 +97,4 @@ Descarregar um cog específico. Digite load e o nome do cog.
 ### !reload
 
 Recarregar um cog espeífico. Digite load e o nome do cog.
-*Status: Completo.*
+*Status: Completo.
